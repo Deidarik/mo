@@ -13,6 +13,7 @@ def fib_pair(ratio: float):
 def fib_ref(fn_1: int,fn: int):
     return fn-fn_1, fn_1
 def fibbonachi(func: Callable[[float], float], lhs: float, rhs: float, eps: float = 1.5e-6, max_iters: int = 100) -> float:
+    if(lhs>rhs): lhs,rhs=rhs,lhs
     ratio=(rhs-lhs)/eps
     fn_plus_1,fn,count_iter=fib_pair(ratio)
     xl=lhs+(rhs-lhs)*(fn_plus_1-fn)/fn_plus_1
