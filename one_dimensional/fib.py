@@ -14,7 +14,7 @@ def fib_ref(fn_1: float,fn: float) -> Tuple[float,float]:
     return fn - fn_1, fn_1
 
 
-def fibbonachi(func: Callable[[float], float], lhs: float, rhs: float, eps: float = 1.3e-6, max_iters: int = 100) -> float:
+def fibbonachi(func: Callable[[float], float], lhs: float, rhs: float, eps: float = 1.5e-6, max_iters: int = 100) -> float:
     if(lhs > rhs): lhs, rhs = rhs, lhs
     ratio = (rhs - lhs) / eps
     fn_plus_1, fn, count_iter = fib_pair(ratio)
