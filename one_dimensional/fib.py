@@ -15,7 +15,7 @@ def fibbonachi(func: Callable[[float], float], lhs: float, rhs: float, eps: floa
     ratio = (rhs - lhs) / eps
     fn_plus_1, fn, count_iter = fib_pair(ratio)
     xl = lhs + (rhs - lhs) * (fn_plus_1 - fn) / fn_plus_1
-    xr= lhs + (rhs - lhs) * fn / fn_plus_1
+    xr = lhs + (rhs - lhs) * fn / fn_plus_1
     fl = func(xl)
     fr = func(xr)
     fn, fn_plus_1 = fib_ref(fn, fn_plus_1)
