@@ -2,7 +2,7 @@ from typing import Callable
 
 from tests import test_f
 
-def fib_pair(ratio: float):
+def fib_pair(ratio: float)->list[int,int,int]:
     fn_1,fn=1,1
     iter=0
     while(fn<ratio):
@@ -10,7 +10,7 @@ def fib_pair(ratio: float):
         fn_1,fn=fn,fn+fn_1
     return fn, fn_1, iter
 
-def fib_ref(fn_1: int,fn: int):
+def fib_ref(fn_1: int,fn: int)->list[int,int]:
     return fn-fn_1, fn_1
 def fibbonachi(func: Callable[[float], float], lhs: float, rhs: float, eps: float = 1.5e-6, max_iters: int = 100) -> float:
     if(lhs>rhs): lhs,rhs=rhs,lhs
