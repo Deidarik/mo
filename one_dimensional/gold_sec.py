@@ -14,7 +14,7 @@ def gold_sec(func: Callable[[float], float], lhs: float, rhs: float, eps: float 
             lhs = xl
             xl = xr
             fl = fr
-            xr = lhs+(rhs - lhs) * PSI
+            xr = lhs + (rhs - lhs) * PSI
             fr = func(xr)
         else:
             rhs = xr
