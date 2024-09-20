@@ -1,4 +1,4 @@
-from one_dimensional import gold_sec,bisect,test_f,fibbonachi
+from one_dimensional import gold_sec, bisect, test_f, fibbonachi
 
 if __name__ == "__main__":
     print(bisect(test_f,-2.0, 2.0))
