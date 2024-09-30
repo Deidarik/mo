@@ -3,7 +3,7 @@ PSI = 0.61803398874989484820
 
 
 def gold_sec(func: Callable[[float], float], lhs: float, rhs: float, eps: float = 1e-6, max_iters: int = 100) -> float:
-    if(lhs > rhs): lhs, rhs = rhs, lhs
+    lhs, rhs = (rhs, lhs) if rhs < lhs else (lhs, rhs)
     count_iter = 0
     xl = rhs - (rhs - lhs) * PSI
     xr = lhs + (rhs - lhs) * PSI
