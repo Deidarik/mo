@@ -15,8 +15,8 @@ if __name__ == "__main__" :
    XPOINTS=XPOINTS.reshape((5,))
    xs = np.linspace(0,20,5)
    ax.set_xticks(xs, labels = XPOINTS)
-   y1 = [15, 6.6, 3.5, 2.25, 1.5]
-   y2 = [10.64,	4.48, 2.25,	1.11, 0.66]
+   y1 = [7.23, 5.67, 3.5, 2.72, 2.8]
+   y2 = [11.55, 4.51, 2.42,	1.8, 1.05]
    plt.xlim(-1, 21)
    plt.ylim(-1, 21)
    plt.plot(xs, y1, color = 'red', label = 'e_э')
