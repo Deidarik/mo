@@ -16,8 +16,8 @@ def fib_ref(fn_1: float,fn: float):
 
 def fibbonachi(func, left, right, eps, max_iters: int = 100):
     lhs, rhs = (right, left) if right[0] < left[0] else (left, right)
-    print(np.linalg.norm(rhs - lhs))
-    ratio = np.linalg.norm(rhs - lhs) / eps
+    dist = np.linalg.norm(rhs - lhs)
+    ratio = dist / eps
     fn_plus_1, fn, count_iter = fib_pair(ratio)
     xl = lhs + (rhs - lhs) * (fn_plus_1 - fn) / fn_plus_1
     xr = lhs + (rhs - lhs) * fn / fn_plus_1
