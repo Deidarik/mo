@@ -25,7 +25,7 @@ if __name__ == "__main__":
     x_start = np.reshape(x_start, (2, 1))
     print(bisect(test_f, next_x_ar, init_x_ar))
     print(gold_sec(test_f, next_x_ar, init_x_ar))
-    print(fibbonachi(test_f, next_x_ar, init_x_ar, 1e-5))
+    print(fibbonachi(test_f, next_x_ar, init_x_ar, 0))
     print(per_coord_descend(test_f, x_start))
     #meme = fibbonachi(test_f, next_x_ar, init_x_ar)
     #print(draw_graph(test_f, next_x_ar, init_x_ar, 100, [(meme, test_f(meme))]))

@@ -1,7 +1,7 @@
 from typing import Callable, Tuple
 import numpy as np
 
-def fib_pair(ratio: float):
+def fib_pair(ratio: float) -> Tuple[float,float,int]:
     fn_1, fn = 1, 1
     count_iter = 0
     while(fn < ratio):
@@ -10,11 +10,11 @@ def fib_pair(ratio: float):
     return fn, fn_1, count_iter
 
 
-def fib_ref(fn_1: float,fn: float):
+def fib_ref(fn_1: float,fn: float) -> Tuple[float,float]:
     return fn - fn_1, fn_1
 
 
-def fibbonachi(func, left, right, eps, max_iters: int = 100):
+def fibbonachi(func: Callable[[float], float], left: float, right: float, mode: int = 0,  eps: float = 1e-5, max_iters: int = 100) -> float:
     lhs, rhs = (right, left) if right[0] < left[0] else (left, right)
     dist = np.linalg.norm(rhs - lhs)
     ratio = dist / eps
@@ -39,6 +39,7 @@ def fibbonachi(func, left, right, eps, max_iters: int = 100):
             xl = lhs + (rhs - lhs) * (fn_plus_1 - fn) / fn_plus_1
             fl = func(xl)
         fn, fn_plus_1 = fib_ref(fn, fn_plus_1)
-    print(f"function probes fib : {count_iter + 3}")
-    print(f"arg range: {np.linalg.norm(rhs - lhs)}")
+    if not(mode):   
+     print(f"function probes fib : {count_iter + 3}")
+     print(f"arg range: {np.linalg.norm(rhs - lhs)}")
     return (lhs + rhs) * 0.5

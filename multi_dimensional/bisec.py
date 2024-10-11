@@ -1,7 +1,9 @@
 from typing import Callable
 import numpy as np
+import numba
 
-def bisect(func, left, right, eps: float = 1e-5, max_iters: int = 100):
+#@numba.njit(fastmath=True)
+def bisect(func: Callable[[float], float], left: float, right: float, eps: float = 1e-5, max_iters: int = 100) -> float:
     lhs, rhs = (right, left) if right[0] < left[0] else (left, right)
     count_iters = 0
     dist = np.sum((rhs-lhs)*eps/np.linalg.norm(rhs - lhs))
