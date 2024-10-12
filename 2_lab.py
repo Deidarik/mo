@@ -17,12 +17,12 @@ def draw_graph(func, x0, x1, nsteps=100, points:Tuple[Tuple[float,float], ...] =
 """
 
 if __name__ == "__main__":
-    init_x_ar = np.array([[0, 0]], dtype = float)
-    next_x_ar = np.array([[5, 3]], dtype = float)
-    x_start = np.array([[-14, -33.98]], dtype = float)
-    init_x_ar = np.reshape(init_x_ar, (2, 1))
-    next_x_ar = np.reshape(next_x_ar, (2, 1))
-    x_start = np.reshape(x_start, (2, 1))
+    init_x_ar = np.array([0, 0, 0], dtype = float)
+    next_x_ar = np.array([0, 5, 10], dtype = float)
+    x_start = np.array([-1, -2, 3.0], dtype = float)
+    # init_x_ar = np.reshape(init_x_ar, (2, 1))
+    # next_x_ar = np.reshape(next_x_ar, (2, 1))
+    # x_start = np.reshape(x_start, (2, 1))
     print(bisect(test_f, next_x_ar, init_x_ar))
     print(gold_sec(test_f, next_x_ar, init_x_ar))
     print(fibbonachi(test_f, next_x_ar, init_x_ar, 0))

@@ -3,8 +3,7 @@ import numpy as np
 import numba
 
 #@numba.njit(fastmath=True)
-def bisect(func: Callable[[float], float], left: float, right: float, eps: float = 1e-5, max_iters: int = 100) -> float:
-    lhs, rhs = (right, left) if right[0] < left[0] else (left, right)
+def bisect(func: Callable[[np.ndarray], float], lhs: np.ndarray, rhs: np.ndarray, eps: float = 1e-5, max_iters: int = 100) -> np.ndarray:
     count_iters = 0
     dist = np.sum((rhs-lhs)*eps/np.linalg.norm(rhs - lhs))
     while (count_iters := count_iters + 1) < max_iters and np.linalg.norm(rhs - lhs) > 2 * eps:

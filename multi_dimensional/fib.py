@@ -14,8 +14,7 @@ def fib_ref(fn_1: float,fn: float) -> Tuple[float,float]:
     return fn - fn_1, fn_1
 
 
-def fibbonachi(func: Callable[[float], float], left: float, right: float, mode: int = 0,  eps: float = 1e-5, max_iters: int = 100) -> float:
-    lhs, rhs = (right, left) if right[0] < left[0] else (left, right)
+def fibbonachi(func: Callable[[np.ndarray], float], lhs: np.ndarray, rhs: np.ndarray, mode: int = 0,  eps: float = 1e-5, max_iters: int = 100) -> np.ndarray:
     dist = np.linalg.norm(rhs - lhs)
     ratio = dist / eps
     fn_plus_1, fn, count_iter = fib_pair(ratio)
