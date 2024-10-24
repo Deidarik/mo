@@ -2,33 +2,10 @@ import numpy as np
 from typing import Callable
 from .fib import fibbonachi
 from scipy.optimize import approx_fprime
-"""
-static numerics::vector_f64 conj_gradient_descend(function_nd function, const numerics::vector_f64& x_start, const F64 eps, const I32 max_iters)
-{
-	numerics::vector_f64 x_i(x_start);
-	numerics::vector_f64 x_i_1;
-	numerics::vector_f64 s_i = numerics::vector_f64::gradient(function, x_i, eps)*(-1.0), s_i_1;
-	F64 omega;
-	I32 cntr = 0;
-	for (; cntr <= max_iters; cntr++)
-	{
-		x_i_1 = x_i + s_i;
-		if (numerics::vector_f64::distance(x_i_1, x_i) < 2 * eps) break;
-		x_i_1 = fibonacci(function, x_i, x_i_1, eps);
-		s_i_1 = numerics::vector_f64::gradient(function, x_i_1, eps);
-		omega = std::pow(s_i_1.magnitude(), 2) / std::pow(s_i.magnitude(), 2);
-		s_i = s_i * omega - s_i_1;
-		x_i = x_i_1;
-	}
-#if DISPLAY_PROGRES
-	std::cout << "\nconj gradient descend iterations number : " << cntr << "\n";
-#endif
-	return (x_i_1 + x_i) * 0.5;
-}
 
-"""
 
-def conj_gradient_descend(func: Callable[[np.ndarray], float], start_x: np.ndarray, acc: float = 1e-5, max_iters: int = 100) -> np.ndarray:
+def conj_gradient_descend(func: Callable[[np.ndarray], float],
+                           start_x: np.ndarray, acc: float = 1e-5, max_iters: int = 100) -> np.ndarray:
     x_i = np.copy(start_x)
     x_i_1 = np.empty(shape= x_i.shape, dtype = float)
     s_i = approx_fprime(x_i, func, acc)*(-1.0)

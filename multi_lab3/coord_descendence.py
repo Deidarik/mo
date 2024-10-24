@@ -2,7 +2,8 @@ import numpy as np
 from typing import Callable
 from .fib import fibbonachi
 
-def per_coord_descend(func: Callable[[np.ndarray], float], start_x: np.ndarray, acc: float = 1e-5, max_iters: int = 100) -> np.ndarray:
+def per_coord_descend(func: Callable[[np.ndarray], float], start_x: np.ndarray,
+                       acc: float = 1e-5, max_iters: int = 100) -> np.ndarray:
     x_0 = np.copy(start_x)
     x_1 = np.copy(start_x)
     step = 1.0
